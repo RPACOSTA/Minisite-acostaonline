@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acosta | Seminovos Premium</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            pink: '#D81B60', /* Cor baseada no fundo do seu logo */
+                            dark: '#1E2336', /* Cor baseada na caixa do seu logo */
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(15px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        
+        .glass-card {
+            background: rgba(24, 24, 27, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased min-h-screen flex justify-center selection:bg-brand-pink selection:text-white">
+
+    <!-- Fundo escuro com um brilho sutil rosa/magenta no topo para combinar com a Acosta -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-pink/10 rounded-full blur-[120px] opacity-50"></div>
+    </div>
+
+    <!-- Container Centralizado (Foco total no Mobile) -->
+    <main class="w-full max-w-md px-5 py-10 flex flex-col gap-10 sm:py-12 relative z-10">
+
+        <!-- LOGOTIPO DA LOJA -->
+        <div class="flex justify-center opacity-0 animate-fade-in">
+            <!-- Usa a imagem que você enviou. Caso não carregue localmente, exibe um placeholder com o nome -->
+            <img src="image.png" alt="Logotipo Acosta" 
+                 class="w-32 h-32 object-cover rounded-3xl shadow-[0_10px_40px_rgba(216,27,96,0.2)] border border-white/10 animate-float"
+                 onerror="this.onerror=null; this.src='https://placehold.co/400x400/1E2336/FFFFFF?text=ACOSTA';">
+        </div>
+
+        <!-- TOPO: IMPACTO -->
+        <header class="text-center opacity-0 animate-fade-in delay-100">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+                Você não precisa do iPhone
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-brand-pink">mais caro.</span>
+            </h1>
+            <p class="mt-4 text-lg text-zinc-400 font-medium">
+                Mas precisa parar de parecer <span class="text-white font-bold">qualquer um</span>.
+            </p>
+        </header>
+
+        <!-- MEIO: CONFRONTO -->
+        <section class="opacity-0 animate-fade-in delay-200 bg-zinc-900/50 rounded-2xl p-6 border border-zinc-800/50 relative text-center">
+            <i class="fas fa-quote-left absolute top-4 left-4 text-zinc-800 text-3xl"></i>
+            <p class="text-base text-zinc-300 font-light italic relative z-10 pt-2">
+                Não é sobre celular.
+                <span class="block mt-2 text-xl font-bold text-white not-italic tracking-wide">É sobre como você é visto.</span>
+            </p>
+        </section>
+
+        <!-- PROVA: PRODUTOS -->
+        <section class="opacity-0 animate-fade-in delay-300">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="h-px bg-gradient-to-r from-transparent to-zinc-700 flex-1"></div>
+                <h2 class="text-xs uppercase tracking-widest text-zinc-400 font-bold">Disponíveis Hoje</h2>
+                <div class="h-px bg-gradient-to-l from-transparent to-zinc-700 flex-1"></div>
+            </div>
+
+            <!-- Grid de Aparelhos -->
+            <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                
+                <!-- Aparelho 1 -->
+                <div class="glass-card rounded-2xl p-2.5 flex flex-col gap-3 hover:border-brand-pink/50 transition-colors group">
+                    <div class="aspect-[4/5] bg-zinc-900 rounded-xl overflow-hidden relative">
+                        <!-- Substitua o link abaixo pela foto do seu iPhone -->
+                        <img src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=400&auto=format&fit=crop" alt="iPhone 13 Pro" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-1 pb-1 flex flex-col flex-1">
+                        <h3 class="font-bold text-sm text-zinc-100">iPhone 13 Pro</h3>
+                        <p class="text-[11px] text-zinc-400 mt-0.5">128GB • Grafite</p>
+                        <div class="mt-2 mb-2">
+                            <span class="inline-flex items-center gap-1 text-[10px] font-semibold bg-zinc-800 text-zinc-300 px-1.5 py-0.5 rounded text-green-400">
+                                <i class="fas fa-battery-full"></i> 89%
+                            </span>
+                        </div>
+                        <div class="font-black text-base text-white mt-auto">R$ 3.499</div>
+                    </div>
+                </div>
+
+                <!-- Aparelho 2 -->
+                <div class="glass-card rounded-2xl p-2.5 flex flex-col gap-3 hover:border-brand-pink/50 transition-colors group">
+                    <div class="aspect-[4/5] bg-zinc-900 rounded-xl overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=400&auto=format&fit=crop" alt="iPhone 14" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-1 pb-1 flex flex-col flex-1">
+                        <h3 class="font-bold text-sm text-zinc-100">iPhone 14</h3>
+                        <p class="text-[11px] text-zinc-400 mt-0.5">128GB • Estelar</p>
+                        <div class="mt-2 mb-2">
+                            <span class="inline-flex items-center gap-1 text-[10px] font-semibold bg-zinc-800 text-zinc-300 px-1.5 py-0.5 rounded text-green-400">
+                                <i class="fas fa-battery-full"></i> 95%
+                            </span>
+                        </div>
+                        <div class="font-black text-base text-white mt-auto">R$ 3.899</div>
+                    </div>
+                </div>
+
+                <!-- Aparelho 3 -->
+                <div class="glass-card rounded-2xl p-2.5 flex flex-col gap-3 hover:border-brand-pink/50 transition-colors group">
+                    <div class="aspect-[4/5] bg-zinc-900 rounded-xl overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?q=80&w=400&auto=format&fit=crop" alt="iPhone 12" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-1 pb-1 flex flex-col flex-1">
+                        <h3 class="font-bold text-sm text-zinc-100">iPhone 12</h3>
+                        <p class="text-[11px] text-zinc-400 mt-0.5">64GB • Branco</p>
+                        <div class="mt-2 mb-2">
+                            <span class="inline-flex items-center gap-1 text-[10px] font-semibold bg-zinc-800 text-zinc-300 px-1.5 py-0.5 rounded text-yellow-400">
+                                <i class="fas fa-battery-half"></i> 84%
+                            </span>
+                        </div>
+                        <div class="font-black text-base text-white mt-auto">R$ 2.199</div>
+                    </div>
+                </div>
+
+                <!-- Aparelho 4 -->
+                <div class="glass-card rounded-2xl p-2.5 flex flex-col gap-3 hover:border-brand-pink/50 transition-colors group">
+                    <div class="aspect-[4/5] bg-zinc-900 rounded-xl overflow-hidden relative">
+                        <div class="absolute top-2 right-2 z-10 bg-brand-pink text-white text-[9px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-wider">Novo</div>
+                        <img src="https://images.unsplash.com/photo-1678652197831-2d180705cd2c?q=80&w=400&auto=format&fit=crop" alt="iPhone 14 Pro Max" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-1 pb-1 flex flex-col flex-1">
+                        <h3 class="font-bold text-sm text-zinc-100">iPhone 14 Pro Max</h3>
+                        <p class="text-[11px] text-zinc-400 mt-0.5">256GB • Roxo</p>
+                        <div class="mt-2 mb-2">
+                            <span class="inline-flex items-center gap-1 text-[10px] font-semibold bg-zinc-800 text-zinc-300 px-1.5 py-0.5 rounded text-green-400">
+                                <i class="fas fa-battery-full"></i> 100%
+                            </span>
+                        </div>
+                        <div class="font-black text-base text-white mt-auto">R$ 5.999</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FINAL: CHAMADA PARA AÇÃO (CTA) -->
+        <section class="opacity-0 animate-fade-in delay-300 pb-8 text-center">
+            <div class="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-full px-4 py-2 mb-6">
+                <span class="relative flex h-2.5 w-2.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-pink opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-pink"></span>
+                </span>
+                <span class="text-xs text-zinc-300 font-semibold uppercase tracking-wide">Pronta entrega disponível</span>
+            </div>
+            
+            <!-- Botão WhatsApp Principal -->
+            <a href="https://wa.me/5565999005831?text=Olá%20Acosta!%20Vim%20pelo%20site%20e%20quero%20garantir%20meu%20iPhone%20premium.%20Quais%20modelos%20estão%20disponíveis?" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="relative flex items-center justify-center gap-3 bg-white text-black hover:bg-zinc-200 text-lg font-bold py-4 px-6 rounded-2xl transition-all duration-200 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] group">
+                
+                <i class="fab fa-whatsapp text-2xl text-[#25D366]"></i>
+                <span>Chama no WhatsApp agora</span>
+                
+                <!-- Setinha animada -->
+                <i class="fas fa-arrow-right opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-sm"></i>
+            </a>
+            
+            <p class="mt-5 text-xs text-zinc-500 font-medium">
+                <i class="fas fa-lock mr-1"></i> Compra segura • Garantia Acosta
+            </p>
+        </section>
+
+    </main>
+
+</body>
+</html>
