@@ -1,125 +1,264 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Acosta | Seminovos Premium</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acosta | Seminovos Premium</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            pink: '#D81B60', /* Cor baseada no fundo do seu logo */
+                            dark: '#1E2336', /* Cor baseada na caixa do seu logo */
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(15px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-<script src="https://cdn.tailwindcss.com"></script>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-body {
-    font-family: 'Inter', sans-serif;
-}
-</style>
-
+    <style>
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        
+        .glass-card {
+            background: rgba(24, 24, 27, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
 </head>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased min-h-screen flex justify-center selection:bg-brand-pink selection:text-white">
 
-<body class="bg-zinc-950 text-white flex justify-center">
+    <!-- Fundo escuro com um brilho sutil rosa/magenta no topo para combinar com a Acosta -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-pink/10 rounded-full blur-[120px] opacity-50"></div>
+    </div>
 
-<main class="w-full max-w-md px-5 py-10 flex flex-col gap-10">
+    <!-- Container Centralizado (Foco total no Mobile) -->
+    <main class="w-full max-w-md px-5 py-10 flex flex-col gap-10 sm:py-12 relative z-10">
 
-<!-- LOGO -->
-<div class="flex justify-center">
-    <img src="image.PNG" class="w-28 h-28 rounded-2xl">
-</div>
+        <!-- LOGOTIPO DA LOJA -->
+        <div class="flex justify-center opacity-0 animate-fade-in">
+            <img src="image.PNG" alt="Logotipo Acosta" 
+                 class="w-32 h-32 object-cover rounded-3xl shadow-[0_10px_40px_rgba(216,27,96,0.2)] border border-white/10 animate-float"
+                 onerror="this.onerror=null; this.src='https://placehold.co/400x400/1E2336/FFFFFF?text=ACOSTA';">
+        </div>
 
-<!-- HEADLINE -->
-<header class="text-center">
-    <h1 class="text-3xl font-extrabold leading-tight">
-        Você aceita menos<br>
-        <span class="text-pink-500">ou já decidiu diferente?</span>
-    </h1>
+        <!-- TOPO: IMPACTO -->
+        <header class="text-center opacity-0 animate-fade-in delay-100">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+                Você não precisa do iPhone
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-brand-pink">mais caro.</span>
+            </h1>
+            <p class="mt-5 text-lg sm:text-xl text-zinc-400 font-medium leading-snug">
+                Mas precisa parar de parecer<br>
+                <span class="text-white font-bold uppercase tracking-wide">QUALQUER UM!</span>
+            </p>
+        </header>
 
-    <p class="mt-5 text-zinc-400 text-lg">
-        Não é sobre celular.<br>
-        <span class="text-white font-bold">É sobre como você é visto.</span>
-    </p>
-</header>
+        <!-- MEIO: CONFRONTO -->
+        <section class="opacity-0 animate-fade-in delay-200 bg-zinc-900/50 rounded-2xl p-6 border border-zinc-800/50 relative text-center">
+            <i class="fas fa-quote-left absolute top-4 left-4 text-zinc-800 text-3xl"></i>
+            <p class="text-base text-zinc-300 font-light italic relative z-10 pt-2">
+                Não é sobre celular.
+                <span class="block mt-2 text-xl font-bold text-white not-italic tracking-wide">É sobre como você é visto.</span>
+            </p>
+        </section>
 
-<!-- PRODUTOS -->
-<section>
+        <!-- PROVA: PRODUTOS -->
+        <section class="opacity-0 animate-fade-in delay-300">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="h-px bg-gradient-to-r from-transparent to-zinc-700 flex-1"></div>
+                <h2 class="text-xs uppercase tracking-widest text-zinc-400 font-bold">Estoque Disponível</h2>
+                <div class="h-px bg-gradient-to-l from-transparent to-zinc-700 flex-1"></div>
+            </div>
 
-<div class="grid grid-cols-2 gap-4">
+            <!-- Grid de Aparelhos (2 colunas) -->
+            <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                
+                <!-- 1. iPhone 17 Pro Max -->
+                <div class="glass-card rounded-2xl p-2.5 flex flex-col gap-3 hover:border-brand-pink/50 transition-colors group">
+                    <div class="aspect-[4/5] bg-zinc-900 rounded-xl overflow-hidden relative">
+                        <img src="https://storage.googleapis.com/nexapp-flutter.appspot.com/production/products/a0dd849a1576dad48b2960f8e42632fa" alt="iPhone 17 Pro Max" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-1 pb-1 flex flex-col flex-1">
+                        <h3 class="font-bold text-sm text-zinc-100 leading-tight">iPhone 17 Pro Max</h3>
+                        <p class="text-[11px] text-zinc-400 mt-1">256GB • Novo/Lacrado</p>
+                        <div class="mt-2 mb-2 flex flex-wrap gap-1">
+                            <span class="inline-flex items-center gap-1 text-[10px] font-semibold bg-zinc-800 text-zinc-300 px-1.5 py-0.5 rounded text-green-400">
+                                <i class="fas fa-check-circle"></i> 100%
+                            </span>
+                        </div>
+                        <div class="font-black text-base text-white mt-auto tracking-tight">R$ 8.199,00</div>
+                    </div>
+                </div>
 
-<!-- PRODUTO -->
-<div class="bg-zinc-900 rounded-xl p-3">
-<img src="https://storage.googleapis.com/nexapp-flutter.appspot.com/production/products/a0dd849a1576dad48b2960f8e42632fa" class="rounded-lg mb-2">
-<h3 class="font-bold text-sm">iPhone 17 Pro Max</h3>
-<p class="text-xs text-zinc-400">256GB • Novo</p>
-<p class="text-green-400 text-xs">100%</p>
-<p class="font-bold mt-1">R$ 8.199</p>
-</div>
+                <!-- 2. iPhone 15 Pro -->
+                <div class="glass-card rounded-2xl p-2.5 flex flex-col gap-3 hover:border-brand-pink/50 transition-colors group">
+                    <div class="aspect-[4/5] bg-zinc-900 rounded-xl overflow-hidden relative">
+                        <img src="https://storage.googleapis.com/nexapp-flutter.appspot.com/production/products/fae306b00b3ff4237548bae5f6cb3f36" alt="iPhone 15 Pro" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-1 pb-1 flex flex-col flex-1">
+                        <h3 class="font-bold text-sm text-zinc-100 leading-tight">iPhone 15 Pro</h3>
+                        <p class="text-[11px] text-zinc-400 mt-1">128GB • Todo original</p>
+                        <div class="mt-2 mb-2 flex flex-wrap gap-1">
+                            <span class="inline-flex items-center gap-1 text-[10px] font-semibold bg-zinc-800 text-zinc-300 px-1.5 py-0.5 rounded text-green-400">
+                                <i class="fas fa-battery-full"></i> 90%
+                            </span>
+                        </div>
+                        <div class="font-black text-base text-white mt-auto tracking-tight">R$ 3.099,00</div>
+                    </div>
+                </div>
 
-<div class="bg-zinc-900 rounded-xl p-3">
-<img src="https://storage.googleapis.com/nexapp-flutter.appspot.com/production/products/fae306b00b3ff4237548bae5f6cb3f36" class="rounded-lg mb-2">
-<h3 class="font-bold text-sm">iPhone 15 Pro</h3>
-<p class="text-xs text-zinc-400">128GB</p>
-<p class="text-green-400 text-xs">90%</p>
-<p class="font-bold mt-1">R$ 3.099</p>
-</div>
+                <!-- 3. iPhone 14 Pro Max -->
+                <div class="glass-card rounded-2xl p-2.5 flex flex-col gap-3 hover:border-brand-pink/50 transition-colors group">
+                    <div class="aspect-[4/5] bg-zinc-900 rounded-xl overflow-hidden relative">
+                        <img src="https://storage.googleapis.com/nexapp-flutter.appspot.com/production/products/9460736f96efc44f00066752cdd2cde3" alt="iPhone 14 Pro Max" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-1 pb-1 flex flex-col flex-1">
+                        <h3 class="font-bold text-sm text-zinc-100 leading-tight">iPhone 14 Pro Max</h3>
+                        <p class="text-[11px] text-zinc-400 mt-1">128GB • Todo original</p>
+                        <div class="mt-2 mb-2 flex flex-wrap gap-1">
+                            <span class="inline-flex items-center gap-1 text-[10px] font-semibold bg-zinc-800 text-zinc-300 px-1.5 py-0.5 rounded text-yellow-400">
+                                <i class="fas fa-battery-half"></i> 83%
+                            </span>
+                        </div>
+                        <div class="font-black text-base text-white mt-auto tracking-tight">R$ 2.999,00</div>
+                    </div>
+                </div>
 
-<!-- BLOCO DE TENSÃO -->
-<div class="col-span-2 text-center py-4">
-<p class="text-sm text-zinc-400">A maioria compra pelo preço.</p>
-<p class="text-lg font-bold">Alguns escolhem pelo que isso muda neles.</p>
-</div>
+                <!-- 4. iPhone 13 Pro Max -->
+                <div class="glass-card rounded-2xl p-2.5 flex flex-col gap-3 hover:border-brand-pink/50 transition-colors group">
+                    <div class="aspect-[4/5] bg-zinc-900 rounded-xl overflow-hidden relative">
+                        <img src="https://storage.googleapis.com/nexapp-flutter.appspot.com/production/products/e14541f17fabf268b3f82200c1f8e3aa" alt="iPhone 13 Pro Max" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-1 pb-1 flex flex-col flex-1">
+                        <h3 class="font-bold text-sm text-zinc-100 leading-tight">iPhone 13 Pro Max</h3>
+                        <p class="text-[11px] text-zinc-400 mt-1">128GB • Grafite</p>
+                        <div class="mt-2 mb-2 flex flex-wrap gap-1">
+                            <span class="inline-flex items-center gap-1 text-[10px] font-semibold bg-zinc-800 text-zinc-300 px-1.5 py-0.5 rounded text-yellow-400">
+                                <i class="fas fa-battery-half"></i> 87%
+                            </span>
+                        </div>
+                        <div class="font-black text-base text-white mt-auto tracking-tight">R$ 2.399,00</div>
+                    </div>
+                </div>
 
-<div class="bg-zinc-900 rounded-xl p-3">
-<img src="https://storage.googleapis.com/nexapp-flutter.appspot.com/production/products/9460736f96efc44f00066752cdd2cde3" class="rounded-lg mb-2">
-<h3 class="font-bold text-sm">iPhone 14 Pro Max</h3>
-<p class="text-xs text-zinc-400">128GB</p>
-<p class="text-yellow-400 text-xs">83%</p>
-<p class="font-bold mt-1">R$ 2.999</p>
-</div>
+                <!-- 5. iPhone 13 Pro -->
+                <div class="glass-card rounded-2xl p-2.5 flex flex-col gap-3 hover:border-brand-pink/50 transition-colors group">
+                    <div class="aspect-[4/5] bg-zinc-900 rounded-xl overflow-hidden relative">
+                        <img src="https://storage.googleapis.com/nexapp-flutter.appspot.com/production/products/4521b87123e06c88cedbbcdebb5d68f6" alt="iPhone 13 Pro" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-1 pb-1 flex flex-col flex-1">
+                        <h3 class="font-bold text-sm text-zinc-100 leading-tight">iPhone 13 Pro</h3>
+                        <p class="text-[11px] text-zinc-400 mt-1">128GB • Grafite</p>
+                        <div class="mt-2 mb-2 flex flex-wrap gap-1">
+                            <span class="inline-flex items-center gap-1 text-[10px] font-semibold bg-zinc-800 text-zinc-300 px-1.5 py-0.5 rounded text-yellow-400">
+                                <i class="fas fa-battery-half"></i> 82%
+                            </span>
+                        </div>
+                        <div class="font-black text-base text-white mt-auto tracking-tight">R$ 2.199,00</div>
+                    </div>
+                </div>
 
-<div class="bg-zinc-900 rounded-xl p-3">
-<img src="https://storage.googleapis.com/nexapp-flutter.appspot.com/production/products/e14541f17fabf268b3f82200c1f8e3aa" class="rounded-lg mb-2">
-<h3 class="font-bold text-sm">iPhone 13 Pro Max</h3>
-<p class="text-xs text-zinc-400">128GB</p>
-<p class="text-yellow-400 text-xs">87%</p>
-<p class="font-bold mt-1">R$ 2.399</p>
-</div>
+                <!-- 6. iPhone 13 -->
+                <div class="glass-card rounded-2xl p-2.5 flex flex-col gap-3 hover:border-brand-pink/50 transition-colors group">
+                    <div class="aspect-[4/5] bg-zinc-900 rounded-xl overflow-hidden relative">
+                        <img src="https://storage.googleapis.com/nexapp-flutter.appspot.com/production/products/752907ad88836815cc76b5982d3d4ed7" alt="iPhone 13" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-1 pb-1 flex flex-col flex-1">
+                        <h3 class="font-bold text-sm text-zinc-100 leading-tight">iPhone 13</h3>
+                        <p class="text-[11px] text-zinc-400 mt-1">256GB • Azul</p>
+                        <div class="mt-2 mb-2 flex flex-wrap gap-1">
+                            <span class="inline-flex items-center gap-1 text-[10px] font-semibold bg-zinc-800 text-zinc-300 px-1.5 py-0.5 rounded text-yellow-400">
+                                <i class="fas fa-battery-half"></i> 79%
+                            </span>
+                        </div>
+                        <div class="font-black text-base text-white mt-auto tracking-tight">R$ 1.699,00</div>
+                    </div>
+                </div>
 
-<div class="bg-zinc-900 rounded-xl p-3">
-<img src="https://storage.googleapis.com/nexapp-flutter.appspot.com/production/products/4521b87123e06c88cedbbcdebb5d68f6" class="rounded-lg mb-2">
-<h3 class="font-bold text-sm">iPhone 13 Pro</h3>
-<p class="text-xs text-zinc-400">128GB</p>
-<p class="text-yellow-400 text-xs">82%</p>
-<p class="font-bold mt-1">R$ 2.199</p>
-</div>
+            </div>
+        </section>
 
-<div class="bg-zinc-900 rounded-xl p-3">
-<img src="https://storage.googleapis.com/nexapp-flutter.appspot.com/production/products/752907ad88836815cc76b5982d3d4ed7" class="rounded-lg mb-2">
-<h3 class="font-bold text-sm">iPhone 13</h3>
-<p class="text-xs text-zinc-400">256GB</p>
-<p class="text-yellow-400 text-xs">79%</p>
-<p class="font-bold mt-1">R$ 1.699</p>
-</div>
+        <!-- FINAL: CHAMADA PARA AÇÃO (CTA) -->
+        <section class="opacity-0 animate-fade-in delay-300 text-center mt-2">
+            <div class="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-full px-4 py-2 mb-6">
+                <span class="relative flex h-2.5 w-2.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-pink opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-pink"></span>
+                </span>
+                <span class="text-xs text-zinc-300 font-semibold uppercase tracking-wide">Aparelhos testados e aprovados</span>
+            </div>
+            
+            <!-- Botão WhatsApp Principal -->
+            <a href="https://wa.me/5565999005831?text=Olá%20Acosta!%20Vim%20pelo%20site%20e%20quero%20garantir%20meu%20iPhone%20premium.%20Quais%20modelos%20ainda%20estão%20disponíveis?" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="relative flex items-center justify-center gap-3 bg-white text-black hover:bg-zinc-200 text-lg font-bold py-4 px-6 rounded-2xl transition-all duration-200 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] group">
+                
+                <i class="fab fa-whatsapp text-2xl text-[#25D366]"></i>
+                <span>Chama no WhatsApp agora</span>
+                
+                <!-- Setinha animada -->
+                <i class="fas fa-arrow-right opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-sm"></i>
+            </a>
+            
+            <p class="mt-5 text-xs text-zinc-500 font-medium">
+                <i class="fas fa-lock mr-1"></i> Compra segura • Garantia Acosta
+            </p>
+        </section>
 
-</div>
+        <!-- BANNER: VER MAIS PRODUTOS (RODAPÉ) -->
+        <section class="opacity-0 animate-fade-in delay-300 pb-8 mt-2">
+            <div class="p-4 rounded-2xl bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800 flex items-center justify-between group cursor-pointer hover:border-brand-pink/30 transition-all">
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold text-brand-pink uppercase tracking-widest">Estoque Completo</span>
+                    <span class="text-sm text-zinc-300 mt-1">Temos mais de 100 aparelhos disponíveis!</span>
+                </div>
+                <a href="https://meucomercio.com.br/AcostaCell" target="_blank" class="bg-zinc-800 p-2.5 rounded-xl group-hover:bg-brand-pink transition-colors">
+                    <i class="fas fa-plus text-white"></i>
+                </a>
+            </div>
+        </section>
 
-</section>
-
-<!-- CTA -->
-<section class="text-center mt-6">
-
-<p class="text-zinc-400 mb-4 text-sm">
-Não é pra todo mundo.
-</p>
-
-<a href="https://wa.me/5565999005831?text=Vim%20do%20site%20Acosta" 
-class="bg-white text-black font-bold py-4 px-6 rounded-xl block">
-
-Se você já entendeu, chama no WhatsApp
-
-</a>
-
-</section>
-
-</main>
+    </main>
 
 </body>
 </html>
+
+
+```
